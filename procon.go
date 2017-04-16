@@ -55,5 +55,10 @@ func SolveWithArgs(solve func(in io.Reader, out io.Writer) (err error)) {
 
 		fmt.Print(dmp.DiffPrettyText(diffs))
 		fmt.Println("----++++----++++----")
+
+		err = in.Close()
+		if err != nil {
+			log.Fatalln(i, "file close err:", err)
+		}
 	}
 }
